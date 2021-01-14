@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hpms.study.elevator" default="jar">
+
+   <target name="clean">
+      <delete dir="BUILD" />
+      <delete dir="Debug" />
+      <delete dir="bin" />
+      <delete dir="jbin" />
+   </target>
+
+   <target name="javac">
+      <mkdir dir="BUILD" />
+      <javac
+         destdir          ="BUILD"
+         debug            ="true"
+         debuglevel       ="lines,vars,source"
+         srcdir           ="src"
+         includeantruntime="false" />
+   </target>
+
+   <target name="jar" depends="javac">
+      <copy todir="BUILD">
+         <fileset dir="src" includes="**/*.fxml,**/*.css" />
+      </copy>
+      <jar destfile="Debug/${ant.project.name}.jar" basedir="BUILD">
+         <manifest>
+            <attribute name="Main-Class" value="${ant.project.name}.view.Main" />
+         </manifest>
+      </jar>
+   </target>
+
+   <target name="run" depends="jar">
+      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+         <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
+         <arg value="${ant.project.name}.view.Main" />
+         <arg value="--host=localhost" />
+         <arg value="--port=2416" />
+         <arg value="--should-trace=false" />
+      </exec>
+   </target>
+
+   <target name="run-execute-scenario" depends="jar">
+      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+         <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
+         <arg value="${ant.project.name}.view.Main" />
+         <arg value="--host=localhost" />
+         <arg value="--port=2416" />
+         <arg value="--should-trace=false" />
+         <arg value="--scenario=./scenario" />
+         <arg value="--scenario-action=execute" />
+      </exec>
+   </target>
+
+   <target name="run-record-scenario" depends="jar">
+      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+         <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
+         <arg value="${ant.project.name}.view.Main" />
+         <arg value="--host=localhost" />
+         <arg value="--port=2416" />
+         <arg value="--should-trace=false" />
+         <arg value="--scenario=./scenario" />
+         <arg value="--scenario-action=record" />
+      </exec>
+   </target>
+
+   <target name="display-chronograms" depends="jar">
+      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+         <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
+         <arg value="hpms.study.chronograms.Main" />
+         <arg value="--states-path=prolog-states.log" />
+      </exec>
+   </target>
+
+</project>

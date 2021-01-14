@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<?import hpms.study.chronograms.ChronogramCellFactory?>
+<?import hpms.study.chronograms.CheckBoxTableCellFactory?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="hpms.study.chronograms.ChronogramsCtrl">
+   <stylesheets>
+      <URL value="@Chronograms.css" />
+   </stylesheets>
+   <padding>
+      <Insets topRightBottomLeft="4.0" />
+   </padding>
+   <top>
+      <MenuBar>
+         <menus>
+            <Menu text="File">
+               <items>
+                  <MenuItem text="Open..." onAction="#open" />
+                  <SeparatorMenuItem />
+                  <MenuItem text="Export as PNG..." onAction="#exportAsPng" />
+                  <SeparatorMenuItem />
+                  <MenuItem text="Exit" onAction="#exit" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane fx:id="_splitPane">
+         <TableView fx:id="_variablesVw">
+            <columns>
+               <TableColumn fx:id="_nameClmn" text="Name">
+                  <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="_typeClmn" text="Type">
+                  <cellValueFactory><PropertyValueFactory property="type" /></cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="_displayedClmn" text="Vw">
+                  <cellFactory><CheckBoxTableCellFactory /></cellFactory>
+                  <cellValueFactory><PropertyValueFactory property="displayed" /></cellValueFactory>
+               </TableColumn>
+            </columns>
+         </TableView>
+         <StackPane fx:id="_timeMarkContainer">
+            <ListView fx:id="_chronogramsVw" onMouseMoved="#moveTimeMark">
+               <cellFactory><ChronogramCellFactory /></cellFactory>
+            </ListView>
+            <VBox  fx:id="_timeMark" minWidth="1.0" maxWidth="1.0" />
+            <Label fx:id="_times" />
+         </StackPane>
+      </SplitPane>
+   </center>
+</BorderPane>

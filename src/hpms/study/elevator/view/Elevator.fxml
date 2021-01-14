@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="hpms.study.elevator.view.ElevatorCtrl" hgap="4.0" vgap="4.0">
+   <stylesheets>
+      <URL value="@Elevator.css" />
+   </stylesheets>
+   <padding>
+      <Insets topRightBottomLeft="4.0" />
+   </padding>
+
+   <!-- Column #1 -->
+
+   <Canvas GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="7" width="120" height="840" fx:id="_canvas" />
+
+   <!-- Column #2 -->
+
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 6 -" />
+      <Button text="Descendre" onAction="#landingDown6" maxWidth="Infinity" />
+   </VBox>
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 5 -" />
+      <Button text="Monter"    onAction="#landingUp5"   maxWidth="Infinity" />
+      <Button text="Descendre" onAction="#landingDown5" maxWidth="Infinity" />
+   </VBox>
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="2" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 4 -" />
+      <Button text="Monter"    onAction="#landingUp4"   maxWidth="Infinity" />
+      <Button text="Descendre" onAction="#landingDown4" maxWidth="Infinity" />
+   </VBox>
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 3 -" />
+      <Button text="Monter"    onAction="#landingUp3"   maxWidth="Infinity" />
+      <Button text="Descendre" onAction="#landingDown3" maxWidth="Infinity" />
+   </VBox>
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="4" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 2 -" />
+      <Button text="Monter"    onAction="#landingUp2"   maxWidth="Infinity" />
+      <Button text="Descendre" onAction="#landingDown2" maxWidth="Infinity" />
+   </VBox>
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="5" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 1 -" />
+      <Button text="Monter"    onAction="#landingUp1"   maxWidth="Infinity" />
+      <Button text="Descendre" onAction="#landingDown1" maxWidth="Infinity" />
+   </VBox>
+   <VBox GridPane.columnIndex="1" GridPane.rowIndex="6" alignment="CENTER" spacing="4.0" prefHeight="116" styleClass="bordered">
+      <Label  text="- 0 -" />
+      <Button text="Monter"    onAction="#landingUp0"   maxWidth="Infinity" />
+   </VBox>
+
+   <!-- Column #3 -->
+
+   <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2" spacing="4.0"                  styleClass="bordered">
+      <padding>
+         <Insets topRightBottomLeft="4.0" />
+      </padding>
+      <Label    text="Etat des portes" />
+      <Label    text="" />
+      <fx:define><ToggleGroup fx:id="doorsGroup" /></fx:define> 
+      <RadioButton fx:id="_doorsIndeterminated" text="En mouvement" toggleGroup="$doorsGroup" selected="false" disable="true" />
+      <RadioButton fx:id="_doorsOpen"           text="Ouvertes"     toggleGroup="$doorsGroup" selected="false" disable="true" />
+      <RadioButton fx:id="_doorsClosed"         text="Fermées"      toggleGroup="$doorsGroup" selected="true"  disable="true" />
+   </VBox>
+   <VBox GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3"
+      alignment="CENTER" spacing="4.0" styleClass="bordered">
+      <padding>
+         <Insets topRightBottomLeft="4.0" />
+      </padding>
+      <Label    text="Dans la cabine : " />
+      <Label    text="" />
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 6 -" onAction="#cabin6" />
+         <CheckBox fx:id="_ctrlPanel6" disable="true" />
+      </HBox>
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 5 -" onAction="#cabin5" />
+         <CheckBox fx:id="_ctrlPanel5" disable="true" />
+      </HBox>
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 4 -" onAction="#cabin4" />
+         <CheckBox fx:id="_ctrlPanel4" disable="true" />
+      </HBox>
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 3 -" onAction="#cabin3" />
+         <CheckBox fx:id="_ctrlPanel3" disable="true" />
+      </HBox>
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 2 -" onAction="#cabin2" />
+         <CheckBox fx:id="_ctrlPanel2" disable="true" />
+      </HBox>
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 1 -" onAction="#cabin1" />
+         <CheckBox fx:id="_ctrlPanel1" disable="true" />
+      </HBox>
+      <HBox spacing="20.0" alignment="CENTER">
+         <Button text="- 0 -" onAction="#cabin0" />
+         <CheckBox fx:id="_ctrlPanel0" disable="true" />
+      </HBox>
+      <Label text="" />
+   </VBox>
+</GridPane>
