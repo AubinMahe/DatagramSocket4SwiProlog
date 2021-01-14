@@ -1,7 +1,7 @@
 # Elevator simulator
 
 An elevator simulator with a GUI in Java, and a controller in Prolog.
-The communication is done by messages, UDP datagram.
+The communication is done by messages, UDP datagrams.
 
 To build the UI of the 'elevator' project, use Apache Ant : `ant`.
 
