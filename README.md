@@ -1,5 +1,7 @@
-# Elevator
-C extension for handling DatagramSocket in SWI Prolog (proposal)
+# Elevator simulator
+
+An elevator simulator with a GUI in Java, and a controller in Prolog.
+The communication is done by messages, UDP datagram.
 
 To build the UI of the 'elevator' project, use Apache Ant : `ant`.
 
