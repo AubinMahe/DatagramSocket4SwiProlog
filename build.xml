@@ -30,7 +30,7 @@
    </target>
 
    <target name="run" depends="jar">
-      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+      <exec executable="java">
          <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
          <arg value="${ant.project.name}.view.Main" />
          <arg value="--host=localhost" />
@@ -40,7 +40,7 @@
    </target>
 
    <target name="run-execute-scenario" depends="jar">
-      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+      <exec executable="java">
          <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
          <arg value="${ant.project.name}.view.Main" />
          <arg value="--host=localhost" />
@@ -52,7 +52,7 @@
    </target>
 
    <target name="run-record-scenario" depends="jar">
-      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+      <exec executable="java">
          <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
          <arg value="${ant.project.name}.view.Main" />
          <arg value="--host=localhost" />
@@ -64,7 +64,7 @@
    </target>
 
    <target name="display-chronograms" depends="jar">
-      <exec executable="/applis/jdk_1.8.0u152_64b/bin/java">
+      <exec executable="java">
          <arg value="-cp" /><arg value="Debug/${ant.project.name}.jar" />
          <arg value="hpms.study.chronograms.Main" />
          <arg value="--states-path=prolog-states.log" />
