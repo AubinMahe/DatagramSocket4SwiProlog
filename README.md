@@ -1,4 +1,4 @@
-# DatagramSocket4SwiProlog
+# Elevator
 C extension for handling DatagramSocket in SWI Prolog (proposal)
 
 To build the UI of the 'elevator' project, use Apache Ant : `ant`.
